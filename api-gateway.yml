@@ -19,7 +19,7 @@ spring:
             predicates:
               - Path=/user/**, /student/**, /parent/**
             filters:
-              - AuthenticationFilter
+              - name: AuthenticationFilter
               - name: Retry
                 args:
                   retries: 1
