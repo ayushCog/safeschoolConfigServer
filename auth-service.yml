@@ -37,20 +37,6 @@ eureka:
 
 
 resilience4j:
-  retry:
-    instances:
-      userRegister:
-        max-attempts: 3
-        wait-duration: 2s
-
-      studentRegister:
-        max-attempts: 3
-        wait-duration: 2s
-
-      parentRegister:
-        max-attempts: 3
-        wait-duration: 2s
-
   circuitbreaker:
     instance:
       userRegister:
