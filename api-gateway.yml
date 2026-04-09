@@ -19,11 +19,11 @@ spring:
                   retries: 1
 
           - id: user-service
-            uri: lb://USER-SERVICE
+            uri: lb://user-service
             predicates:
               - Path=/user/**, /student/**, /parent/**
             filters:
-              - name: AuthenticationFilter
+              #- name: AuthenticationFilter
               - name: Retry
                 args:
                   retries: 1
