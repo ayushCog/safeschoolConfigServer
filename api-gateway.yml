@@ -23,7 +23,7 @@ spring:
           predicates:
             - Path=/user/**, /student/**, /parent/**
           filters:
-            - name: Authentication
+            - AuthenticationGatewayFilterFactory
             - name: Retry
               args:
                 retries: 1
