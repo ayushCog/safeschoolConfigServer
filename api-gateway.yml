@@ -2,31 +2,31 @@ spring:
   application:
     name: api-gateway
 
-    cloud:
-      gateway:
-        discovery:
-          locator:
-            enabled: true
-            lower-case-service-id: true
-        routes:
-          - id: auth-service
-            uri: lb://auth-service
-            predicates:
-              - Path=/auth/**
-            filters:
-              - name: Retry
-                args:
-                  retries: 1
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/auth/**
+          filters:
+            - name: Retry
+              args:
+                retries: 1
 
-          - id: user-service
-            uri: lb://user-service
-            predicates:
-              - Path=/user/**, /student/**, /parent/**
-            filters:
-              #- name: AuthenticationFilter
-              - name: Retry
-                args:
-                  retries: 1
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/user/**, /student/**, /parent/**
+          filters:
+            #- name: AuthenticationFilter
+            - name: Retry
+              args:
+                retries: 1
 
 server:
   port: 8081
