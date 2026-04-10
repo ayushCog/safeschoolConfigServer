@@ -27,6 +27,51 @@ spring:
               args:
                 retries: 1
 
+        - id: incident-service
+          uri: lb://incident-service
+          predicates:
+            - Path=/incidents/**
+          filters:
+            - name: Retry
+              args:
+                retries: 1
+
+        - id: resolution-service
+          uri: lb://resolution-service
+          predicates:
+            - Path=/resolution/**
+          filters:
+            - name: Retry
+              args:
+                retries: 1
+
+        - id: program-service
+          uri: lb://program-service
+          predicates:
+            - Path=/program/**
+          filters:
+            - name: Retry
+              args:
+                retries: 1
+
+        - id: training-service
+          uri: lb://training-service
+          predicates:
+            - Path=/training/**
+          filters:
+            - name: Retry
+              args:
+                retries: 1
+
+        - id: notification-service
+          uri: lb://notification-service
+          predicates:
+            - Path=/notification/**
+          filters:
+            - name: Retry
+              args:
+                retries: 1
+
 server:
   port: 8081
 
