@@ -23,7 +23,6 @@ spring:
           predicates:
             - Path=/user/**, /student/**, /parent/**
           filters:
-            - Authentication
             - name: Retry
               args:
                 retries: 1
@@ -33,6 +32,7 @@ spring:
           predicates:
             - Path=/incidents/**
           filters:
+            - Authentication
             - name: Retry
               args:
                 retries: 1
@@ -42,6 +42,7 @@ spring:
           predicates:
             - Path=/resolution/**
           filters:
+            - Authentication
             - name: Retry
               args:
                 retries: 1
@@ -51,6 +52,7 @@ spring:
           predicates:
             - Path=/program/**
           filters:
+            - Authentication
             - name: Retry
               args:
                 retries: 1
@@ -60,6 +62,7 @@ spring:
           predicates:
             - Path=/training/**
           filters:
+            - Authentication
             - name: Retry
               args:
                 retries: 1
